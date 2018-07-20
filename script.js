@@ -70,7 +70,9 @@ function deduct(price){
 
 setInterval(idle, 200);
 
-document.addEventListener("click", add);
-botaoL.addEventListener("click", addIncrement);
+window.addEventListener("click", add);
+window.addEventListener("keypress", add);
+
 botaoC.addEventListener("click", add);
+botaoL.addEventListener("click", addIncrement);
 botaoR.addEventListener("click", addIdle);
