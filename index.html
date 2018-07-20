@@ -2,6 +2,15 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-102222694-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-102222694-2');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -13,24 +22,33 @@
 <body>
     <div class="flex-container" id="container-parent">
         <div class="flex-container" id="container-buttons">
-            <div><button class="button-menu" id="buttonL">$20 </button></div>
-            <div><button class="button-menu" id="buttonC">Click!</button></div>
-            <div><button class="button-menu" id="buttonR">$100</button></div>
+            <div>
+                <button class="button-menu" id="buttonL">$20 </button>
+            </div>
+            <div>
+                <button class="button-menu" id="buttonC">Click!</button>
+            </div>
+            <div>
+                <button class="button-menu" id="buttonR">$100</button>
+            </div>
         </div>
 
         <div class="flex-container" id="container-info">
             <p id="info">$ por click: 1 | $ por segundo: 1</p>
         </div>
-        
+
         <div class="flex-container" id="container-text">
             <p id="moneyText">$0</p>
         </div>
 
     </div>
 
-    <audio id="bgMusic" type="audio/ogg" autoplay loop><source src="https://upload.wikimedia.org/wikipedia/en/8/8c/Lisa_Frank_420.ogg"/></audio>
+    <audio id="bgMusic" type="audio/ogg" autoplay loop>
+        <source src="https://upload.wikimedia.org/wikipedia/en/8/8c/Lisa_Frank_420.ogg" />
+    </audio>
     <audio id="click" src="http://soundbible.com/grab.php?id=419&type=wav"></audio>
     <script src="script.js"></script>
+
 </body>
 
 </html>
