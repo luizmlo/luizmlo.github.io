@@ -68,11 +68,27 @@ function deduct(price){
     }
 }
 
+
 setInterval(idle, 200);
 
 window.addEventListener("click", add);
-window.addEventListener("keypress", add);
-
 botaoC.addEventListener("click", add);
 botaoL.addEventListener("click", addIncrement);
 botaoR.addEventListener("click", addIdle);
+
+window.addEventListener("keydown", function checkKey(){
+    let key = this.event.key;
+    switch(key){
+        case 'ArrowLeft':
+            addIncrement();
+            break;
+        case 'ArrowRight':
+            addIdle();
+            break;
+        default:
+            add();
+            break;
+
+    }
+});
+
