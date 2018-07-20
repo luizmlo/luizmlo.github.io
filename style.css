@@ -38,11 +38,6 @@ body {
 }
 
 #container-buttons {
-	border-style: solid;
-	border-width: 1px;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-style: hidden;
     width: 25vw;
     height: 10vh;
     margin-top: 35vh;
@@ -52,11 +47,23 @@ body {
     align-items: center;
 }
 
-#container-text {
+@media only screen and (min-width: 760px){
+	#container-buttons {
 	border-style: solid;
 	border-width: 1px;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-bottom-style: hidden;
+	}
+	#container-text {
+		border-style: solid;
+		border-width: 1px;
+		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+	}
+}
+
+#container-text {
     display: flex;
     justify-content: center;
     width: 25vw;
