@@ -3,8 +3,8 @@
 const botaoC = document.getElementById('buttonC');
 const botaoL = document.getElementById('buttonL');
 const botaoR = document.getElementById('buttonR');
-
 const moneyText = document.getElementById('moneyText');
+const infoText = document.getElementById('info');
 
 let money = 0;
 let increment = 1;
@@ -16,22 +16,22 @@ let priceIdl = 100;
 let incrementBonus = 1;
 let idleBonus = 1;
 
-let totalInc = 0;
-let totalIdl = 0;
+infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + idleProfit;
 
 function addIdle(){
     if (deduct(priceIdl)){
         idleProfit += idleBonus;
         idleBonus = idleBonus * 2;
         priceIdl = priceIdl * 2;
-        totalIdl += 1;
-        botaoR.innerText = totalIdl;
+        botaoR.innerText = "$" + priceIdl;
+        infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + idleProfit;
     }
 }
 
 function idle(){
     money += idleProfit;
     moneyText.innerText = "$" + money;
+    infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + idleProfit;
 }
 
 function add(){
@@ -44,8 +44,8 @@ function addIncrement(){
         increment += incrementBonus;
         incrementBonus = incrementBonus * 2;
         priceInc = priceInc * 2;
-        totalInc += 1;
-        botaoL.innerText = totalInc;
+        botaoL.innerText = "$" + priceInc;
+        infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + idleProfit;
     }
 }
 
