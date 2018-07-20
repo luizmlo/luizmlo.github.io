@@ -8,7 +8,7 @@ const infoText = document.getElementById('info');
 const clickAudio = document.getElementById('click');
 const bgAudio = document.getElementById('bgMusic');
 
-clickAudio.volume = '0.3';
+clickAudio.volume = '0.1';
 bgAudio.volume = '0.1';
 bgAudio.volume = '0.01';
 
