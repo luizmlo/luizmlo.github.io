@@ -63,9 +63,3 @@ setInterval(idle, 200);
 botaoL.addEventListener("click", addIncrement);
 botaoC.addEventListener("click", add);
 botaoR.addEventListener("click", addIdle);
-
-
-
-function newFunction() {
-    vibrate();
-}
