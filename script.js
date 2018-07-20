@@ -16,11 +16,16 @@ let priceIdl = 100;
 let incrementBonus = 1;
 let idleBonus = 1;
 
+let totalInc = 0;
+let totalIdl = 0;
+
 function addIdle(){
     if (deduct(priceIdl)){
         idleProfit += idleBonus;
         idleBonus = idleBonus * 2;
         priceIdl = priceIdl * 2;
+        totalIdl += 1;
+        botaoR.innerText = totalIdl;
     }
 }
 
@@ -39,6 +44,8 @@ function addIncrement(){
         increment += incrementBonus;
         incrementBonus = incrementBonus * 2;
         priceInc = priceInc * 2;
+        totalInc += 1;
+        botaoL.innerText = totalInc;
     }
 }
 
