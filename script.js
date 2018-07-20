@@ -51,6 +51,7 @@ function addIncrement(){
 
 function deduct(price){
     if (money >= price){
+        window.navigator.vibrate(50);
         money = money - price;
         moneyText.innerText = "$" + money;
         return true;
@@ -64,3 +65,7 @@ botaoC.addEventListener("click", add);
 botaoR.addEventListener("click", addIdle);
 
 
+
+function newFunction() {
+    vibrate();
+}
