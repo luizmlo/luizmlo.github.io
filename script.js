@@ -31,7 +31,7 @@ function addIdle(){
     if (deduct(priceIdl)){
         idleProfit += idleBonus;
         idleBonus = idleBonus * 2;
-        priceIdl = priceIdl * 2;
+        priceIdl = priceIdl * 4;
         botaoR.innerText = "$" + priceIdl;
     }
 }
@@ -51,7 +51,7 @@ function addIncrement(){
     if (deduct(priceInc)){
         increment += incrementBonus;
         incrementBonus = incrementBonus * 2;
-        priceInc = priceInc * 2;
+        priceInc = priceInc * 4;
         botaoL.innerText = "$" + priceInc;
     }
 }
@@ -69,6 +69,7 @@ function deduct(price){
 
 setInterval(idle, 200);
 
+document.addEventListener("click", add);
 botaoL.addEventListener("click", addIncrement);
 botaoC.addEventListener("click", add);
 botaoR.addEventListener("click", addIdle);
