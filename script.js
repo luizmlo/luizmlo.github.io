@@ -5,6 +5,11 @@ const botaoL = document.getElementById('buttonL');
 const botaoR = document.getElementById('buttonR');
 const moneyText = document.getElementById('moneyText');
 const infoText = document.getElementById('info');
+const clickAudio = document.getElementById('click');
+const bgAudio = document.getElementById('bgMusic');
+
+clickAudio.volume = '0.3';
+bgAudio.volume = '0.1';
 
 let money = 0;
 let increment = 1;
@@ -17,6 +22,10 @@ let incrementBonus = 1;
 let idleBonus = 1;
 
 infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + (idleProfit * 5);
+
+function playClick(){
+    clickAudio.play();
+}
 
 function addIdle(){
     if (deduct(priceIdl)){
@@ -53,6 +62,7 @@ function deduct(price){
         money = money - price;
         moneyText.innerText = "$" + money;
         infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + (idleProfit * 5);
+        playClick();
         return true;
     }
 }
