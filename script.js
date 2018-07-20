@@ -9,7 +9,7 @@ const clickAudio = document.getElementById('click');
 const bgAudio = document.getElementById('bgMusic');
 
 clickAudio.volume = '0.3';
-bgAudio.volume = '0.1';
+bgAudio.volume = '0.01';
 
 let money = 0;
 let increment = 1;
