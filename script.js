@@ -16,7 +16,7 @@ let priceIdl = 100;
 let incrementBonus = 1;
 let idleBonus = 1;
 
-infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + idleProfit;
+infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + (idleProfit * 5);
 
 function addIdle(){
     if (deduct(priceIdl)){
@@ -24,14 +24,13 @@ function addIdle(){
         idleBonus = idleBonus * 2;
         priceIdl = priceIdl * 2;
         botaoR.innerText = "$" + priceIdl;
-        infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + idleProfit;
     }
 }
 
 function idle(){
     money += idleProfit;
     moneyText.innerText = "$" + money;
-    infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + idleProfit;
+    infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + (idleProfit * 5);
 }
 
 function add(){
@@ -45,7 +44,6 @@ function addIncrement(){
         incrementBonus = incrementBonus * 2;
         priceInc = priceInc * 2;
         botaoL.innerText = "$" + priceInc;
-        infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + idleProfit;
     }
 }
 
@@ -54,6 +52,7 @@ function deduct(price){
         window.navigator.vibrate(20);
         money = money - price;
         moneyText.innerText = "$" + money;
+        infoText.innerText = '$ por click: ' + increment + ' | ' + ' $ por segundo: ' + (idleProfit * 5);
         return true;
     }
 }

@@ -67,6 +67,7 @@ body {
 		padding: 0px;
     	height: 5vh;
 		border-style: solid;
+		border-bottom-style: hidden;
 		font-family: 'Roboto';
 		border-width: 1px;
 	}
