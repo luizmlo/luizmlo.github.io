@@ -51,7 +51,7 @@ function addIncrement(){
 
 function deduct(price){
     if (money >= price){
-        window.navigator.vibrate(50);
+        window.navigator.vibrate(20);
         money = money - price;
         moneyText.innerText = "$" + money;
         return true;
