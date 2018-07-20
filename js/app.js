@@ -2,12 +2,12 @@
 
 // Third party module
 
-if(screen.width >= 1280){
-  particlesJS.load('particles-js', 'assets/particles.json', null);
+if (screen.width >= 1280) {
+  particlesJS.load("particles-js", "assets/particles.json", null);
+} else {
+  particlesJS.load("particles-js", "assets/particles-mobile.json", null);
 }
-else{
-  particlesJS.load('particles-js', 'assets/particles-mobile.json', null);
-}
+
 // Main app
 const botaoC = document.getElementById("buttonC");
 const botaoL = document.getElementById("buttonL");
@@ -19,6 +19,9 @@ const bgAudio = document.getElementById("bgMusic");
 
 clickAudio.volume = "0.1";
 bgAudio.volume = "0.1";
+
+bgAudio.src = 'assets/bgMusic.ogg';
+bgAudio.play();
 
 let money = 0;
 let increment = 1;
