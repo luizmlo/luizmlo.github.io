@@ -1,31 +1,32 @@
 /* General */
-html,body{ 
-	width:100%;
-  height:100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
-html{
+html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-body{
-  font:normal 75% Arial, Helvetica, sans-serif;
+body {
+  font: normal 75% Arial, Helvetica, sans-serif;
 }
 
 /* Particles-js */
-#particles-js{
-	width: 100%;
-	height: 100%;
+#particles-js {
+  width: 100%;
+  height: 100%;
   z-index: -1;
-  background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-	background-size: 400% 400%;
-	-webkit-animation: Gradient 15s ease infinite;
-	-moz-animation: Gradient 15s ease infinite;
-	animation: Gradient 15s ease infinite;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  -webkit-animation: Gradient 15s ease infinite;
+  -moz-animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite;
 }
-canvas{
+canvas {
   display: block;
   vertical-align: bottom;
 }
@@ -33,13 +34,13 @@ canvas{
 /* App */
 
 .button-menu {
-  background: linear-gradient(135deg, #e570e7 0%,#79f1fc 100%);
+  background: linear-gradient(135deg, #e570e7 0%, #79f1fc 100%);
   box-shadow: 0 5px 3px rgba(0, 0, 0, 0.3);
   outline: none;
   padding: 30px;
   font-size: 20px;
   line-height: 5px;
-	font-family: 'Roboto';
+  font-family: "Roboto";
   color: white;
   border-radius: 5px;
   border-radius: 5px;
@@ -47,12 +48,10 @@ canvas{
   height: 50px;
 }
 
-
-#moneyText { 
+#moneyText {
   font-size: 40px;
-  font-family: 'Roboto';
+  font-family: "Roboto";
 }
-
 
 #container-parent {
   position: absolute;
@@ -73,83 +72,82 @@ canvas{
   align-items: center;
 }
 
-@media only screen and (min-width: 1280px){
-	#container-buttons {
-	border-style: solid;
-	border-width: 1px;
-	border-top-right-radius: 10px;
-	border-top-left-radius: 10px;
-	border-bottom-style: hidden;
-	border-color: white;
-	}
-	#container-text {
-		border-style: solid;
-		border-width: 1px;
-		border-bottom-right-radius: 10px;
-		border-bottom-left-radius: 10px;
-		text-align: center;
-		border-color: white;
-	}
-	#container-info {
-		width: 25vw;
-		padding: 0px;
+@media only screen and (min-width: 1280px) {
+  #container-buttons {
+    border-style: solid;
+    border-width: 1px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-style: hidden;
+    border-color: white;
+  }
+  #container-text {
+    border-style: solid;
+    border-width: 1px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: center;
+    border-color: white;
+  }
+  #container-info {
+    width: 25vw;
+    padding: 0px;
     height: 5vh;
-		border-style: solid;
-		border-bottom-style: hidden;
-		font-family: 'Roboto';
-		border-width: 1px;
-		border-color: white;
-	}
+    border-style: solid;
+    border-bottom-style: hidden;
+    font-family: "Roboto";
+    border-width: 1px;
+    border-color: white;
+  }
 }
 
-
 #container-text {
-	display: flex;
+  display: flex;
   justify-content: center;
-	width: 25vw;
-	height: 8vw;
-	font-size: 40px;
+  width: 25vw;
+  height: 8vw;
+  font-size: 40px;
 }
 
 p {
-	text-align: center;
-	font-size: 15px;
-	color: antiquewhite;
-	font-family: 'Roboto';
+  text-align: center;
+  font-size: 15px;
+  color: antiquewhite;
+  font-family: "Roboto";
 }
 
 @-webkit-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @-moz-keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes Gradient {
-	0% {
-		background-position: 0% 50%
-	}
-	50% {
-		background-position: 100% 50%
-	}
-	100% {
-		background-position: 0% 50%
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
