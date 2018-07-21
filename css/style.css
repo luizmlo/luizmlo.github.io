@@ -22,16 +22,45 @@ body {
   z-index: -1;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
-  -webkit-animation: Gradient 15s ease infinite;
-  -moz-animation: Gradient 15s ease infinite;
-  animation: Gradient 15s ease infinite;
+  -webkit-animation: Gradient 20s ease infinite;
+  -moz-animation: Gradient 20s ease infinite;
+  animation: Gradient 20s ease infinite;
 }
 canvas {
   display: block;
   vertical-align: bottom;
 }
-
 /* App */
+
+#side-buttons a {
+	position: absolute;
+	left: -80px;
+	transition: 0.3s;
+	padding: 5px;
+	width: 100px;
+	text-decoration: none;
+	font-size: 15px;
+	text-align: center;
+	color: white;
+	font-family: "Roboto";
+	border-style: solid;
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+	border-left-style: hidden;
+	border-width: 1px;
+}
+
+#side-buttons a:hover {
+	left: 0;
+}
+
+#saveButton{
+	top: 10px;
+}
+
+#loadButton{
+	top: 45px;
+}
 
 .button-menu {
   background: linear-gradient(135deg, #e570e7 0%, #79f1fc 100%);

@@ -1,17 +1,10 @@
 "use strict";
 
-// Third party module
-
-if (screen.width >= 1280) {
-  particlesJS.load("particles-js", "assets/particles.json", null);
-} else {
-  particlesJS.load("particles-js", "assets/particles-mobile.json", null);
-}
-
-// Main app
 const botaoC = document.getElementById("buttonC");
 const botaoL = document.getElementById("buttonL");
 const botaoR = document.getElementById("buttonR");
+const botaoSave = document.getElementById("saveButton");
+const botaoLoad = document.getElementById("loadButton");
 const moneyText = document.getElementById("moneyText");
 const infoText = document.getElementById("info");
 const clickAudio = document.getElementById("click");
@@ -20,85 +13,139 @@ const bgAudio = document.getElementById("bgMusic");
 clickAudio.volume = "0.1";
 bgAudio.volume = "0.1";
 
-bgAudio.src = 'assets/bgMusic.ogg';
-bgAudio.play();
+let musicOn = false;
 
 let money = 0;
-let increment = 1;
+let clickProfit = 1;
 let idleProfit = 0;
 
 let priceInc = 20;
 let priceIdl = 100;
 
-let incrementBonus = 1;
-let idleBonus = 1;
+let nvIdl = 1;
+let nvInc = 1;
 
-infoText.innerText =
-  "$ por click: " + increment + " | " + " $ por segundo: " + idleProfit * 5;
-
-function playClick() {
-  clickAudio.play();
+if (screen.width >= 1280) {
+  particlesJS.load("particles-js", "assets/particles.json", null);
+} else {
+  particlesJS.load("particles-js", "assets/particles-mobile.json", null);
 }
 
-function addIdle() {
-  if (deduct(priceIdl)) {
-    idleProfit += idleBonus;
-    idleBonus = idleBonus * 2;
-    priceIdl = priceIdl * 4;
-    botaoR.innerText = "$" + priceIdl;
+function saveGame() {
+  localStorage.setItem("save-money", money);
+  localStorage.setItem("save-nv-clickprofit", nvInc);
+  localStorage.setItem("save-nv-idle", nvIdl);
+  localStorage.setItem("save-clickprofit", clickProfit);
+  localStorage.setItem("save-idleprofit", idleProfit);
+}
+
+function loadSave() {
+  let moneySave = localStorage.getItem("save-money");
+  let incSave = localStorage.getItem("save-nv-clickprofit");
+  let idlSave = localStorage.getItem("save-nv-idle");
+  let clickProfitSave = localStorage.getItem("save-clickprofit");
+  let idleProfitSave = localStorage.getItem("save-idleprofit");
+  if (moneySave) {
+    console.log("Save encontrado!");
+    console.log("Money: ", moneySave);
+    console.log("Nível do Click: ", incSave);
+    console.log("Nível Idle: ", idlSave);
+    console.log("Valor do click: ", clickProfitSave);
+    console.log("Lucro por segundo: ", idleProfitSave);
+	money = parseFloat(moneySave);
+	clickProfit = parseFloat(clickProfitSave)
+	idleProfit = parseFloat(idleProfitSave)
+    nvInc = parseFloat(incSave);
+    nvIdl = parseFloat(idlSave);
+  } else {
+    console.log("Save não encontrado!");
   }
 }
-
+function updateText() {
+  moneyText.innerText = "$ " + money.toFixed(1);
+  botaoR.innerText = "$" + priceIdl;
+  botaoL.innerText = "$" + priceInc;
+  infoText.innerText =
+    "Nv: " +
+    nvInc +
+    " | $ por click: " +
+    clickProfit.toFixed(1) +
+    " | " +
+    " $ por segundo: " +
+    idleProfit.toFixed(1) * 5 +
+    " | Nv: " +
+    nvIdl;
+}
+function add() {
+  money += clickProfit;
+  updateText();
+}
+function addClickProfit() {
+  if (deduct(priceInc)) {
+    nvInc += 1;
+    clickProfit += clickProfit * 1.1;
+    priceInc = priceInc * 3;
+    updateText();
+  }
+}
 function idle() {
   money += idleProfit;
-  moneyText.innerText = "$" + money;
-  infoText.innerText =
-    "$ por click: " + increment + " | " + " $ por segundo: " + idleProfit * 5;
+  updateText();
 }
-
-function add() {
-  money += increment;
-  moneyText.innerText = "$" + money;
-}
-
-function addIncrement() {
-  if (deduct(priceInc)) {
-    increment += incrementBonus;
-    incrementBonus = incrementBonus * 2;
-    priceInc = priceInc * 4;
-    botaoL.innerText = "$" + priceInc;
+function addIdle() {
+  if (deduct(priceIdl)) {
+    nvIdl += 1;
+    if (idleProfit == 0) {
+      idleProfit++;
+    }
+    idleProfit = idleProfit * 2;
+    priceIdl = priceIdl * 4;
+    updateText();
   }
 }
-
 function deduct(price) {
   if (money >= price) {
     window.navigator.vibrate(20);
     money = money - price;
-    moneyText.innerText = "$" + money;
-    infoText.innerText =
-      "$ por click: " + increment + " | " + " $ por segundo: " + idleProfit * 5;
-    playClick();
+    updateText();
+    playShopSound();
     return true;
+  }
+}
+function playShopSound() {
+  clickAudio.play();
+}
+function toggleBgMusic() {
+  if (musicOn === false) {
+    musicOn = true;
+    bgAudio.play();
+  } else {
+    musicOn = false;
+    bgAudio.pause();
   }
 }
 
 setInterval(idle, 200);
 
-window.addEventListener("click", add);
+botaoSave.addEventListener("click", saveGame);
+botaoLoad.addEventListener("click", loadSave);
 botaoC.addEventListener("click", add);
-botaoL.addEventListener("click", addIncrement);
+botaoL.addEventListener("click", addClickProfit);
 botaoR.addEventListener("click", addIdle);
-
 window.addEventListener("keyup", function checkKey() {
-  let key = this.event.key;
+  let key = event.key;
+  this.console.log(key);
   switch (key) {
     case "ArrowLeft":
-      addIncrement();
+      addClickProfit();
       break;
     case "ArrowRight":
       addIdle();
       break;
-    default:
+    case "m":
+      toggleBgMusic();
+      break;
+    case " ":
       add();
       break;
   }
