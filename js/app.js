@@ -80,54 +80,54 @@ function loadSave() {
 
 function updateMoney() {
   if (money >= 1) {
-    moneyText.innerText = "$ " + money.toFixed(1);
+    moneyText.innerText = "$" + money.toFixed(1);
     if (money >= 1000) {
       //Kilos
-      moneyText.innerText = "$ " + (money / 1000).toFixed(2) + "k";
+      moneyText.innerText = "$" + (money / 1000).toFixed(2) + "k";
       if (money >= 1000000) {
         //Millions
-        moneyText.innerText = "$ " + (money / 1000000).toFixed(2) + "M";
+        moneyText.innerText = "$" + (money / 1000000).toFixed(2) + "M";
         if (money >= 1000000000) {
           //Billions
-          moneyText.innerText = "$ " + (money / 1000000000).toFixed(2) + "B";
+          moneyText.innerText = "$" + (money / 1000000000).toFixed(2) + "B";
           if (money >= 1000000000000) {
             //Trillions
             moneyText.innerText =
-              "$ " + (money / 1000000000000).toFixed(2) + "a";
+              "$" + (money / 1000000000000).toFixed(2) + "a";
             if (money >= 1000000000000000) {
               //Quadrillions
               moneyText.innerText =
-                "$ " + (money / 1000000000000000).toFixed(2) + "b";
+                "$" + (money / 1000000000000000).toFixed(2) + "b";
               if (money >= 1000000000000000000) {
                 //Quintillions
                 moneyText.innerText =
-                  "$ " + (money / 1000000000000000000).toFixed(2) + "c";
+                  "$" + (money / 1000000000000000000).toFixed(2) + "c";
                 if (money >= 1000000000000000000000) {
                   //Sextillions
                   moneyText.innerText =
-                    "$ " + (money / 1000000000000000000000).toFixed(2) + "d";
+                    "$" + (money / 1000000000000000000000).toFixed(2) + "d";
                   if (money >= 1000000000000000000000000) {
                     //Septillions
                     moneyText.innerText =
-                      "$ " +
+                      "$" +
                       (money / 1000000000000000000000000).toFixed(2) +
                       "e";
                     if (money >= 1000000000000000000000000000) {
                       //Octillions
                       moneyText.innerText =
-                        "$ " +
+                        "$" +
                         (money / 1000000000000000000000000000).toFixed(2) +
                         "f";
                       if (money >= 1000000000000000000000000000000) {
                         //Nonillions
                         moneyText.innerText =
-                          "$ " +
+                          "$" +
                           (money / 1000000000000000000000000000000).toFixed(2) +
                           "g";
                         if (money >= 1000000000000000000000000000000000) {
                           //Decillions
                           moneyText.innerText =
-                            "$ " +
+                            "$" +
                             (
                               money / 1000000000000000000000000000000000
                             ).toFixed(2) +
