@@ -114,7 +114,8 @@ canvas {
     border-style: solid;
     border-width: 1px;
     border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
+		border-bottom-left-radius: 10px;
+		white-space: nowrap;
     text-align: center;
     border-color: white;
   }
@@ -124,7 +125,8 @@ canvas {
     height: 5vh;
     border-style: solid;
     border-bottom-style: hidden;
-    font-family: "Roboto";
+		font-family: "Roboto";
+		white-space: nowrap;
     border-width: 1px;
     border-color: white;
   }
@@ -133,14 +135,16 @@ canvas {
 #container-text {
   display: flex;
   justify-content: center;
-  width: 25vw;
+	width: 25vw;
+	white-space: nowrap;
   height: 8vw;
   font-size: 40px;
 }
 
 p {
   text-align: center;
-  font-size: 15px;
+	font-size: 15px;
+	white-space: nowrap;
   color: antiquewhite;
   font-family: "Roboto";
 }
