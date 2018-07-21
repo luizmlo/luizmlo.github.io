@@ -10,9 +10,6 @@ const infoText = document.getElementById("info");
 const clickAudio = document.getElementById("click");
 const bgAudio = document.getElementById("bgMusic");
 
-clickAudio.volume = "0.1";
-bgAudio.volume = "0.1";
-
 let musicOn = false;
 
 let money = 0;
@@ -24,6 +21,11 @@ let priceIdl = 100;
 
 let nvIdl = 1;
 let nvInc = 1;
+
+let caseState = 0;
+
+clickAudio.volume = "0.1";
+bgAudio.volume = "0.1";
 
 if (screen.width >= 1280) {
   particlesJS.load("particles-js", "assets/particles.json", null);
@@ -75,10 +77,173 @@ function loadSave() {
     console.log("Save não encontrado!");
   }
 }
-function updateText() {
-  moneyText.innerText = "$ " + money.toFixed(1);
-  botaoR.innerText = "$" + priceIdl;
-  botaoL.innerText = "$" + priceInc;
+
+function updateMoney() {
+  if (money >= 1) {
+    moneyText.innerText = "$ " + money.toFixed(1);
+    if (money >= 1000) {
+      //Kilos
+      moneyText.innerText = "$ " + (money / 1000).toFixed(2) + "k";
+      if (money >= 1000000) {
+        //Millions
+        moneyText.innerText = "$ " + (money / 1000000).toFixed(2) + "M";
+        if (money >= 1000000000) {
+          //Billions
+          moneyText.innerText = "$ " + (money / 1000000000).toFixed(2) + "B";
+          if (money >= 1000000000000) {
+            //Trillions
+            moneyText.innerText =
+              "$ " + (money / 1000000000000).toFixed(2) + "a";
+            if (money >= 1000000000000000) {
+              //Quadrillions
+              moneyText.innerText =
+                "$ " + (money / 1000000000000000).toFixed(2) + "b";
+              if (money >= 1000000000000000000) {
+                //Quintillions
+                moneyText.innerText =
+                  "$ " + (money / 1000000000000000000).toFixed(2) + "c";
+                if (money >= 1000000000000000000000) {
+                  //Sextillions
+                  moneyText.innerText =
+                    "$ " + (money / 1000000000000000000000).toFixed(2) + "d";
+                  if (money >= 1000000000000000000000000) {
+                    //Septillions
+                    moneyText.innerText =
+                      "$ " +
+                      (money / 1000000000000000000000000).toFixed(2) +
+                      "e";
+                    if (money >= 1000000000000000000000000000) {
+                      //Octillions
+                      moneyText.innerText =
+                        "$ " +
+                        (money / 1000000000000000000000000000).toFixed(2) +
+                        "f";
+                      if (money >= 1000000000000000000000000000000) {
+                        //Nonillions
+                        moneyText.innerText =
+                          "$ " +
+                          (money / 1000000000000000000000000000000).toFixed(2) +
+                          "g";
+                        if (money >= 1000000000000000000000000000000000) {
+                          //Decillions
+                          moneyText.innerText =
+                            "$ " +
+                            (
+                              money / 1000000000000000000000000000000000
+                            ).toFixed(2) +
+                            "h";
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+function updateButtons() {
+  function updateButtonL() {
+    if (priceInc >= 1) {
+      botaoL.innerText = "$" + priceInc.toFixed(1);
+      if (priceInc >= 1000) {
+        botaoL.innerText = "$" + (priceInc / 1000).toFixed(1) + "k";
+        if (priceInc >= 1000000) {
+          botaoL.innerText = "$" + (priceInc / 1000000).toFixed(1) + "M";
+          if (priceInc >= 1000000000) {
+            botaoL.innerText = "$" + (priceInc / 1000000000).toFixed(1) + "B";
+            if (priceInc >= 1000000000000) {
+              botaoL.innerText = "$" + (priceInc / 1000000000000).toFixed(1) + "a";
+              if (priceInc >= 1000000000000000) {
+                botaoL.innerText = "$" + (priceInc / 1000000000000000).toFixed(1) + "b";
+                if (priceInc >= 1000000000000000000) {
+                  botaoL.innerText = "$" + (priceInc / 1000000000000000000).toFixed(1) + "c";
+                  if (priceInc >= 1000000000000000000000) {
+                    botaoL.innerText =
+                      "$" + (priceInc / 1000000000000000000000).toFixed(1) + "d";
+                    if (priceInc >= 1000000000000000000000000) {
+                      botaoL.innerText =
+                        "$" + (priceInc / 1000000000000000000000000).toFixed(1) + "e";
+                      if (priceInc >= 1000000000000000000000000000) {
+                        botaoL.innerText =
+                          "$" + (priceInc / 1000000000000000000000000000).toFixed(1) + "f";
+                        if (priceInc >= 1000000000000000000000000000000) {
+                          botaoL.innerText =
+                            "$" +
+                            (priceInc / 1000000000000000000000000000000).toFixed(1) +
+                            "g";
+                          if (priceInc >= 1000000000000000000000000000000000) {
+                            botaoL.innerText =
+                              "$" +
+                              (priceInc / 1000000000000000000000000000000000).toFixed(1) +
+                              "h";
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  function updateButtonR() {
+    if (priceIdl >= 1) {
+		botaoR.innerText = "$" + priceIdl.toFixed(1);
+		if (priceIdl >= 1000) {
+			botaoR.innerText = "$" + (priceIdl / 1000).toFixed(1) + "k";
+		  if (priceIdl >= 1000000) {
+			botaoR.innerText = "$" + (priceIdl / 1000000).toFixed(1) + "M";
+			if (priceIdl >= 1000000000) {
+				botaoR.innerText = "$" + (priceIdl / 1000000000).toFixed(1) + "B";
+			  if (priceIdl >= 1000000000000) {
+				botaoR.innerText = "$" + (priceIdl / 1000000000000).toFixed(1) + "a";
+				if (priceIdl >= 1000000000000000) {
+					botaoR.innerText = "$" + (priceIdl / 1000000000000000).toFixed(1) + "b";
+				  if (priceIdl >= 1000000000000000000) {
+					botaoR.innerText = "$" + (priceIdl / 1000000000000000000).toFixed(1) + "c";
+					if (priceIdl >= 1000000000000000000000) {
+						botaoR.innerText =
+						"$" + (priceIdl / 1000000000000000000000).toFixed(1) + "d";
+					  if (priceIdl >= 1000000000000000000000000) {
+						botaoR.innerText =
+						  "$" + (priceIdl / 1000000000000000000000000).toFixed(1) + "e";
+						if (priceIdl >= 1000000000000000000000000000) {
+							botaoR.innerText =
+							"$" + (priceIdl / 1000000000000000000000000000).toFixed(1) + "f";
+						  if (priceIdl >= 1000000000000000000000000000000) {
+							botaoR.innerText =
+							  "$" +
+							  (priceIdl / 1000000000000000000000000000000).toFixed(1) +
+							  "g";
+							if (priceIdl >= 1000000000000000000000000000000000) {
+								botaoR.innerText =
+								"$" +
+								(priceIdl / 1000000000000000000000000000000000).toFixed(1) +
+								"h";
+							}
+						  }
+						}
+					  }
+					}
+				  }
+				}
+			  }
+			}
+		  }
+		}
+	  }
+  }
+  updateButtonL();
+  updateButtonR();
+}
+function updateStatus() {
   infoText.innerText =
     "Nv: " +
     nvInc +
@@ -90,22 +255,32 @@ function updateText() {
     " | Nv: " +
     nvIdl;
 }
+
+function updateAll() {
+  updateMoney();
+  updateButtons();
+  updateStatus();
+}
+
 function add() {
   money += clickProfit;
-  updateText();
+  updateAll();
 }
+
 function addClickProfit() {
   if (deduct(priceInc)) {
     nvInc += 1;
-    clickProfit += clickProfit * 1.1;
+    clickProfit += clickProfit * 1.2;
     priceInc = priceInc * 3;
-    updateText();
+    updateAll();
   }
 }
+
 function idle() {
   money += idleProfit;
-  updateText();
+  updateAll();
 }
+
 function addIdle() {
   if (deduct(priceIdl)) {
     nvIdl += 1;
@@ -114,23 +289,26 @@ function addIdle() {
     }
     idleProfit = idleProfit * 2;
     priceIdl = priceIdl * 4;
-    updateText();
+    updateAll();
   }
 }
+
 function deduct(price) {
   if (money >= price) {
     window.navigator.vibrate(20);
     money = money - price;
-    updateText();
+    updateAll();
     playShopSound();
     return true;
   }
 }
+
 function playShopSound() {
   clickAudio.pause();
   clickAudio.currentTime = 0;
   clickAudio.play();
 }
+
 function toggleBgMusic() {
   if (musicOn === false) {
     musicOn = true;
