@@ -25,7 +25,6 @@ let priceIdl = 100;
 let nvIdl = 1;
 let nvInc = 1;
 
-
 if (screen.width >= 1280) {
   particlesJS.load("particles-js", "assets/particles.json", null);
 } else {
@@ -50,20 +49,28 @@ function loadSave() {
   let idleProfitSave = localStorage.getItem("save-idleprofit");
   let clickPriceSave = localStorage.getItem("save-clickprice");
   let idlePriceSave = localStorage.getItem("save-idleprice");
-  if (moneySave && incSave && idlSave && clickProfitSave && idleProfitSave && clickPriceSave && idlePriceSave) {
+  if (
+    moneySave &&
+    incSave &&
+    idlSave &&
+    clickProfitSave &&
+    idleProfitSave &&
+    clickPriceSave &&
+    idlePriceSave
+  ) {
     console.log("Save encontrado!");
     console.log("Money: ", moneySave);
     console.log("Nível do Click: ", incSave);
     console.log("Nível Idle: ", idlSave);
     console.log("Valor do click: ", clickProfitSave);
     console.log("Lucro por segundo: ", idleProfitSave);
-	money = parseFloat(moneySave);
-	clickProfit = parseFloat(clickProfitSave)
-	idleProfit = parseFloat(idleProfitSave)
+    money = parseFloat(moneySave);
+    clickProfit = parseFloat(clickProfitSave);
+    idleProfit = parseFloat(idleProfitSave);
     nvInc = parseFloat(incSave);
-	nvIdl = parseFloat(idlSave);
-	priceInc = parseFloat(clickPriceSave);
-	priceIdl = parseFloat(idlePriceSave);
+    nvIdl = parseFloat(idlSave);
+    priceInc = parseFloat(clickPriceSave);
+    priceIdl = parseFloat(idlePriceSave);
   } else {
     console.log("Save não encontrado!");
   }
@@ -120,6 +127,8 @@ function deduct(price) {
   }
 }
 function playShopSound() {
+  clickAudio.pause();
+  clickAudio.currentTime = 0;
   clickAudio.play();
 }
 function toggleBgMusic() {
