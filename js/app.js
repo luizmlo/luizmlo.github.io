@@ -17,7 +17,7 @@ let clickProfit = 1;
 let idleProfit = 0;
 
 let priceInc = 20;
-let priceIdl = 100;
+let priceIdl = 200;
 
 let nvIdl = 1;
 let nvInc = 1;
@@ -79,6 +79,25 @@ function loadSave() {
 }
 
 function updateMoney() {
+  // let newMoneyTextValue;
+  // const moneyTextPrefix = '$';
+  // const moneyTextPostfix = ['', 'k', 'M', 'B', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
+
+  // const postfixRange = 1e3;
+
+  // for (let i = 0; i < moneyTextPostfix.length; i++) {
+  //   if (money <= postfixRange * Math.pow(postfixRange, i)) {
+  //     // If the current amount of money is greater than `postfixRange`, reduce the current value
+  //     // and add a new postfix to it. This is how cookie clicker games do to add a custom notation.
+  //     const formatedMoney = money <= postfixRange? money.toFixed(1) : parseInt(money.toFixed(2)) / postfixRange;
+
+  //     newMoneyTextValue = moneyTextPrefix + formatedMoney + moneyTextPostfix[i];
+  //     break;
+  //   }
+  // }
+
+  // moneyText.innerText = newMoneyTextValue;
+
   if (money >= 1) {
     moneyText.innerText = "$" + money.toFixed(1);
     if (money >= 1000) {
@@ -287,7 +306,7 @@ function addIdle() {
     if (idleProfit == 0) {
       idleProfit++;
     }
-    idleProfit = idleProfit * 2;
+    idleProfit = idleProfit * 3;
     priceIdl = priceIdl * 4;
     updateAll();
   }
